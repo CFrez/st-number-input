@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root {
+      --theme-spacing-none: 0;
+      --theme-sizes-full: 100%;
+      --theme-colors-body-text: #262730;
+      --theme-colors-secondary-bg: #f0f2f6;
+      --theme-colors-white: #ffffff;
+      --theme-colors-primary: #f63366;
+      --theme-radii-md: 0.25rem;
+      --theme-spacing-twoXS: 0.25rem;
+    }
+    body {
+      background: #e6eaf1;
+      font-family: IBM Plex Sans, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html'
+    import '../dist/st-number-input.js'
+
+    const label = 'label about the number input'
+    const value = 1
+    const min = 0
+    const max = 10
+    const step = .1
+
+    render(
+      html`
+        <st-number-input
+          label=${label}
+          value=${value}
+          min=${min}
+          max=${max}
+          step=${step}
+          />
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
