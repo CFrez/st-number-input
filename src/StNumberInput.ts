@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { property, query } from 'lit/decorators.js';
 
-``
+
 export class StNumberInput extends LitElement {
   static styles = css`
     :host {
