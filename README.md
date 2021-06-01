@@ -43,30 +43,6 @@ npm run format:eslint
 npm run format:prettier
 ```
 
-## Testing with Web Test Runner
-To run the suite of Web Test Runner tests, run
-```bash
-npm run test
-```
-
-To run the tests in watch mode (for &lt;abbr title=&#34;test driven development&#34;&gt;TDD&lt;/abbr&gt;, for example), run
-
-```bash
-npm run test:watch
-```
-
-## Demoing with Storybook
-To run a local instance of Storybook for your component, run
-```bash
-npm run storybook
-```
-
-To build a production version of Storybook, run
-```bash
-npm run storybook:build
-```
-
-
 ## Tooling configs
 
 For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
