@@ -66,8 +66,11 @@ export class StNumberInput extends LitElement {
     }
   `;
 
-  @property({ type: String }) label = false;
+  // define attributes/properties to be used
+  // ---------------------------------------
+  @property({ type: String }) label = '';
 
+  // the value will be reflected and update the attribute
   @property({ type: Number, reflect: true }) value = 0;
 
   @property({ type: Number }) min = 0;
@@ -76,9 +79,12 @@ export class StNumberInput extends LitElement {
 
   @property({ type: Number }) step = 1;
 
+  // property to gain access to current value of the input component
   @query('input#value')
   private input!: HTMLInputElement;
 
+  // control for increment and decrement buttons, currently doesn't handle
+  // min/max limits
   private decrement() {
     this.value -= this.step;
   }
@@ -87,6 +93,8 @@ export class StNumberInput extends LitElement {
     this.value += this.step;
   }
 
+  // uses the input element to verify number with within min/max limits prior
+  // to commiting it to the value
   private updateIfValid() {
     if (this.input.validity.valid) {
       this.value = this.input.valueAsNumber
@@ -107,6 +115,11 @@ export class StNumberInput extends LitElement {
           max=${this.max}
           step=${this.step}
           @blur=${this.updateIfValid}
+          @keypress=${(e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+              this.input.blur()
+            }
+          }}
         />
           <button @click=${this.decrement}>&minus;</button>
           <button @click=${this.increment}>&plus;</button>
