@@ -26,20 +26,14 @@
     import { html, render } from 'lit-html'
     import '../dist/st-number-input.js'
 
-    const label = 'label about the number input'
-    const value = 1
-    const min = 0
-    const max = 10
-    const step = .1
-
     render(
       html`
         <st-number-input
-          label=${label}
-          value=${value}
-          min=${min}
-          max=${max}
-          step=${step}
+          label='label about the number input'
+          value=1
+          min=0
+          max=10
+          step=0.1
           />
       `,
       document.querySelector('#demo')

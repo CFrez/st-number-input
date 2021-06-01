@@ -66,13 +66,15 @@ export class StNumberInput extends LitElement {
     }
   `;
 
-  @property({ type: Boolean }) disabled = false;
   @property({ type: String }) label = false;
+
   @property({ type: Number, reflect: true }) value = 0;
+
   @property({ type: Number }) min = 0;
+
   @property({ type: Number }) max = 100;
+
   @property({ type: Number }) step = 1;
-  @property({ type: Boolean }) showButtons = true;
 
   @query('input#value')
   private input!: HTMLInputElement;
@@ -91,7 +93,6 @@ export class StNumberInput extends LitElement {
     }
   }
 
-
   render() {
     return html`
       <label>
@@ -107,14 +108,10 @@ export class StNumberInput extends LitElement {
           step=${this.step}
           @blur=${this.updateIfValid}
         />
-        ${this.showButtons ? html`
           <button @click=${this.decrement}>&minus;</button>
           <button @click=${this.increment}>&plus;</button>
-        ` : ``
-        }
       </div>
     `;
   }
-
 }
 
